@@ -1,9 +1,10 @@
-import './App.css'
+import { Login } from './pages/Login'
+import './assets/App.css'
 
-function App() {
+export default function App() {
   return (
-    <div className="App"></div>
+    <div className="App">
+      <Login />
+    </div>
   )
 }
-
-export default App
