@@ -23,3 +23,6 @@ Construir uma aplicação web (frontend e backend) capaz de realizar a comunica�
 - NodeJS (com ou sem frameworks)
 - MongoDB
 - HTML e CSS
+
+
+https://www.sharenergy.com.br/
