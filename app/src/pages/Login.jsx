@@ -1,10 +1,14 @@
+import { Link } from "react-router-dom"
 import { useState } from "react"
+import '../assets/login.css'
 
 
 export const Login = () => {
   const [usuario, setUsuario] = useState('');
   const [senha, setSenha] = useState('');
   const [check, setCheck] = useState(false)
+
+  //---------------------------------------------
 
   const pegarUsuario = (event) => {
     setUsuario(event.target.value);
@@ -17,29 +21,30 @@ export const Login = () => {
   const pegarCheck = () => {
     if (check == false) {
       setCheck(true)
-      console.log('Salvar dados', check)
     }
     else {
       setCheck(false)
-      console.log('Não salvar dados', check)
     }
   }
+
+  //---------------------------------------------
 
   const enviar = (event) => {
     event.preventDefault();
     if (usuario == '' || senha == '') {
-      console.log('erro')
+      window.alert('Login invalido!')
     }
     else {
-      console.log('entrei')
+      if (check == true) {
+        localStorage.setItem("chaveUsuario", usuario)
+        localStorage.setItem("chaveSenha", senha)
+      }
     }
+
     //axios
   };
 
-  console.log(usuario, senha)
-  // localStorage.setItem("chave", dado)     salvar
-  // localStorage.getItem("chave", dado)     resgatar
-  // localStorage.removeItem("chave", dado)  remover
+  //---------------------------------------------
 
   return (
     <div className="Login">
@@ -52,7 +57,7 @@ export const Login = () => {
           <input type="password" placeholder="Senha" value={senha} onChange={pegarSenha} />
         </label>
         <label className="check">
-          <input type="checkbox" name="" id="" onClick={pegarCheck}/>
+          <input type="checkbox" onClick={pegarCheck}/>
           <span>Lembrar</span>
         </label>
 
@@ -61,3 +66,5 @@ export const Login = () => {
     </div>
   );
 }
+
+//<Link to="/home">Home</Link>
