@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Card } from '../components/Card';
 import '../assets/home.css'
 
+// https://www.youtube.com/watch?v=YSlzQlEqTBg   paginação
 
 export const Home = () => {
 
