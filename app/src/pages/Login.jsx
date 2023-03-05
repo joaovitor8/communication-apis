@@ -48,21 +48,23 @@ export const Login = () => {
 
   return (
     <div className="Login">
-      <h1>Bem Vindo!</h1>
-      <p>Por favor, digite o seu usuario e senha</p>
+      <div>
+        <h1>Bem Vindo!</h1>
+        <p>Por favor, digite o seu usuario e senha</p>
 
-      <form onSubmit={enviar}>
-        <label className="inputs">
-          <input type="text" placeholder="Usuario" value={usuario} onChange={pegarUsuario} />
-          <input type="password" placeholder="Senha" value={senha} onChange={pegarSenha} />
-        </label>
-        <label className="check">
-          <input type="checkbox" onClick={pegarCheck}/>
-          <span>Lembrar</span>
-        </label>
+        <form onSubmit={enviar}>
+          <label className="inputs">
+            <input type="text" placeholder="Usuario" value={usuario} onChange={pegarUsuario} />
+            <input type="password" placeholder="Senha" value={senha} onChange={pegarSenha} />
+          </label>
+          <label className="check">
+            <input type="checkbox" onClick={pegarCheck}/>
+            <span>Lembrar</span>
+          </label>
 
-        <button type="submit">Login</button>
-      </form>
+          <button type="submit">Login</button>
+        </form>
+      </div>
     </div>
   );
 }
