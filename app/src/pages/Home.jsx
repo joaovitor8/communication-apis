@@ -1,10 +1,11 @@
+import { useEffect, useState } from 'react';
+import axios from 'axios'
 
 
 export const Home = () => {
+
   return (
-    <div className="Home">
-      <h1>Home Teste</h1>
-    </div>
+    <div className="Home"></div>
   )
 }
 
