@@ -11,9 +11,14 @@ import './assets/App.css'
 export default function App() {
   const [logar, setLogar] = useState(false)
 
-  // const user = localStorage.getItem("chaveUsuario")
-  // const senh = localStorage.getItem("chaveSenha")
+  const user = localStorage.getItem("chaveUsuario")
+  const senh = localStorage.getItem("chaveSenha")
 
+  if (user == '' || senh == '') {
+    return (
+      <Login/>
+    )
+  }
 
   return (
     <div className="App">

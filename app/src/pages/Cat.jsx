@@ -1,25 +1,23 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios"
+import '../assets/cat.css'
 
 
 export const Cat = () => {
-  const [gatos, setGatos] = useState()
+  const [gatoTxt, setGatoTxt] = useState(0)
+  const [gatoImg, setGatoImg] = useState(0)
 
-  //Pegando API dos Gatos  -  API: //https://http.cat/[status_code]
-  useEffect(() => {
-    axios.get('https://http.cat/500')
-    .then(res => {setGatos(res.data)})
-    .catch(error => {console.log(error)});
-  }, [])
-
-  console.log(gatos)
+  const transferirImg = () => {
+    setGatoImg(gatoTxt)
+  }
 
   return (
     <div className="Cat">
-      <h1>Pagina dos gatos</h1>
-      <input type="text"/>
-      <button>Buscar</button>
-      {/* <img src={gatos} alt="Foto de Gato"/> */}
+      <div className="pesquisaGatos">
+        <input type="text" placeholder="Pesquisar Gatos" onChange={(e => setGatoTxt(e.target.value))}/>
+        <button onClick={transferirImg}>Buscar</button>
+      </div>
+      <img src={`https://http.cat/${gatoImg}`} alt="Foto de Gato"/>
     </div>
   )
 }
