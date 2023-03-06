@@ -1,14 +1,23 @@
 .Home {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  height: 100vh;
-  background-color: rgb(250, 250, 250);
 }
 
+.Home .procurarUsers {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.Home .ramdomUsers {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+} 
 
 .Home input {
   height: 40px;
-  width: 100%;
+  width: 50%;
   padding: 5px;
+  margin-top: 10px;
 }

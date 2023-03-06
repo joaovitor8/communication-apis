@@ -1,19 +1,18 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios'
+import { useState } from 'react';
 import { Card } from '../components/Card';
 import '../assets/home.css'
 
-// https://www.youtube.com/watch?v=YSlzQlEqTBg   paginação
 
 export const Home = () => {
 
+
   return (
     <div className="Home">
-      <div>
-        <input type="text" placeholder="Pesquisar usuarios" />
+      <div className='procurarUsers'>
+        <input type="text" placeholder="Pesquisar usuarios" onChange={(e) => console.log(e.target.value)}/>
       </div>
 
-      <div >
+      <div className='ramdomUsers'>
         <Card />
       </div>
     </div>

@@ -1,0 +1,23 @@
+.Naveg {
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.Naveg nav {
+  width: 50%;
+  height: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.Naveg a {
+  text-decoration: none;
+  margin: 5px 10px;
+  color: green;
+  background-color: white;
+  box-shadow: 1px 1px 3px black;
+  padding: 5px 10px;
+  border-radius: 5px;
+}

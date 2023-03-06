@@ -1,19 +1,46 @@
 .Card {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   background-color: white;
   box-shadow: 1px 1px 3px black;
   border-radius: 7px;
   padding: 5px;
+  width: 50%;
+  margin-bottom: 30px;
+}
+
+.Card .paginacao {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.Card button {
+  height: 40px;
+  width: 40px;
+  margin: 0 1px;
+}
+
+.Card .itens {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 20px 0;
+  border: 1px solid black;
+  border-radius: 7px;
+  width: 80%;
+  padding: 5px;
 }
 
 .Card img {
   height: 50px;
-  border-radius: 15px;
+  border-radius: 100%;
 }
 
-.Card div {
+.Card .ps {
   margin-left: 10px;
 }
 
