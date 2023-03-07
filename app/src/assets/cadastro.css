@@ -1,0 +1,27 @@
+.Cadastro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Cadastro h1 {
+  margin: 10px 0;
+}
+
+.Cadastro form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  box-shadow: 1px 1px 3px black;
+  width: 250px;
+  height: 350px;
+  background-color: white;
+  padding-left: 10px;
+}
+
+.Cadastro label {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}

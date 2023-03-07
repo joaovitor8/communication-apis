@@ -8,6 +8,7 @@ export const Naveg = () => {
         <Link to="/">Home</Link>
         <Link to="/cat">Cat</Link>
         <Link to="/dog">Dog</Link>
+        <Link to="/cadastro">Cadastro</Link>
       </nav>
     </div>
   )
