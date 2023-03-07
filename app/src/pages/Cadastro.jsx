@@ -19,8 +19,10 @@ export const Cadastro = () => {
       setMensagem('Por favor, preencha todos os campos.');
       return;
     }
-
-    // Código para enviar o cadastro para o servidor aqui
+    else {
+      // Código para enviar o cadastro para o servidor aqui
+      console.log('Dados enviados com sucesso!')
+    }
 
     setMensagem('Cadastro realizado com sucesso!');
   }
@@ -52,9 +54,13 @@ export const Cadastro = () => {
         </label>
 
         <button type="submit">Cadastrar</button>
-      </form>
-      {mensagem && <p>{mensagem}</p>}
 
+        {mensagem && <p>{mensagem}</p>}
+      </form>
+
+      <div>
+        <h1>Usuarios Cadastrados</h1>
+      </div>
     </div>
   );
 }

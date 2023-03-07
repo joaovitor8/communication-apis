@@ -10,27 +10,23 @@ import './assets/App.css'
 
 
 export default function App() {
-  const [logar, setLogar] = useState(false)
+  // const [logar, setLogar] = useState(false)
 
-  const user = localStorage.getItem("chaveUsuario")
-  const senh = localStorage.getItem("chaveSenha")
+  // const user = localStorage.getItem("chaveUsuario")
+  // const senh = localStorage.getItem("chaveSenha")
 
-  if (user == '' || senh == '') {
-    return (
-      <Login/>
-    )
-  }
 
   return (
     <div className="App">
-      <Router>
+      <Router >
         <Naveg/>
 
         <Routes>
-          <Route path='/' element={<Home/>} />
-          <Route path='/cat' element={<Cat/>} />
-          <Route path='/dog' element={<Dog/>} />
-          <Route path='/cadastro' element={<Cadastro/>} />
+          <Route path='/' element={<Home/>}/>
+          <Route path='/cat' element={<Cat/>}/>
+          <Route path='/dog' element={<Dog/>}/>
+          <Route path='/cadastro' element={<Cadastro/>}/>
+          <Route path='/login' element={<Login/>}/>
         </Routes>
       </Router>
     </div>
