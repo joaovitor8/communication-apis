@@ -10,23 +10,21 @@ import './assets/App.css'
 
 
 export default function App() {
-  // const [logar, setLogar] = useState(false)
-
-  // const user = localStorage.getItem("chaveUsuario")
-  // const senh = localStorage.getItem("chaveSenha")
-
+  //const user = localStorage.getItem("chaveUsuario")
+  //const senh = localStorage.getItem("chaveSenha")
 
   return (
     <div className="App">
       <Router >
-        <Naveg/>
+        {/* <Naveg/> */}
 
         <Routes>
           <Route path='/' element={<Home/>}/>
-          <Route path='/cat' element={<Cat/>}/>
-          <Route path='/dog' element={<Dog/>}/>
-          <Route path='/cadastro' element={<Cadastro/>}/>
           <Route path='/login' element={<Login/>}/>
+
+          {/* <Route path='/cat' element={<Cat/>}/>
+          <Route path='/dog' element={<Dog/>}/>
+          <Route path='/cadastro' element={<Cadastro/>}/> */}
         </Routes>
       </Router>
     </div>
