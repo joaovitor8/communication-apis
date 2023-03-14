@@ -1,10 +1,10 @@
-.Naveg {
+.NavBar {
   height: 50px;
   display: flex;
   align-items: center;
 }
 
-.Naveg nav {
+.NavBar nav {
   width: 50%;
   height: 50%;
   display: flex;
@@ -12,7 +12,7 @@
   align-items: center;
 }
 
-.Naveg a {
+.NavBar a {
   text-decoration: none;
   margin: 5px 10px;
   background-color: #1AA3A1;

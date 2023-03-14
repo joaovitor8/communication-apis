@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom";
 import '../assets/login.css'
 
 
@@ -28,6 +29,8 @@ export const Login = () => {
 
   //---------------------------------------------
 
+  const navigate = useNavigate()
+
   const enviar = (event) => {
     event.preventDefault();
     if (usuario == '' || senha == '') {
@@ -38,6 +41,8 @@ export const Login = () => {
         localStorage.setItem("chaveUsuario", usuario)
         localStorage.setItem("chaveSenha", senha)
       }
+
+      return navigate("/")
     }
 
     //BackEnd

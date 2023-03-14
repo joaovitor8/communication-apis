@@ -1,32 +1,22 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { useState } from 'react'
-import { Naveg } from './components/Navegacao'
+import { Outlet } from 'react-router-dom'
 import { Login } from './pages/Login'
-import { Home } from './pages/Home'
-import { Cat } from './pages/Cat'
-import { Dog } from './pages/Dog'
-import { Cadastro } from './pages/Cadastro'
+import { NavBar } from './components/NavBar'
+import { Footer } from './components/Footer'
 import './assets/App.css'
 
 
 export default function App() {
-  //const user = localStorage.getItem("chaveUsuario")
-  //const senh = localStorage.getItem("chaveSenha")
+  const [logado, setLogado] = useState(false)
+
+  const usuario = localStorage.getItem('chaveUsuario');
+  const senha = localStorage.getItem('chaveSenha');
 
   return (
     <div className="App">
-      <Router >
-        {/* <Naveg/> */}
-
-        <Routes>
-          <Route path='/' element={<Home/>}/>
-          <Route path='/login' element={<Login/>}/>
-
-          {/* <Route path='/cat' element={<Cat/>}/>
-          <Route path='/dog' element={<Dog/>}/>
-          <Route path='/cadastro' element={<Cadastro/>}/> */}
-        </Routes>
-      </Router>
+      <NavBar/>
+      <Outlet/>
+      <Footer/>
     </div>
   )
 }

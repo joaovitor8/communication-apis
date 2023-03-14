@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom'
-import '../assets/naveg.css'
+import '../assets/navBar.css'
 
 
-export const Naveg = () => {
+export const NavBar = () => {
   return (
-    <div className="Naveg">
+    <div className="NavBar">
       <nav>
         <Link to="/">Home</Link>
         <Link to="/cat">Cat</Link>
