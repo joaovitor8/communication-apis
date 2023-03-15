@@ -8,11 +8,15 @@ import { Home } from './pages/Home'
 import { Cat } from './pages/Cat'
 import { Dog } from './pages/Dog'
 import { Cadastro } from './pages/Cadastro'
+import { Login } from './pages/Login'
+import { Error } from './components/Error'
+
 
 const rotas = createBrowserRouter([
   {
     path: "/",
     element: <App/>,
+    errorElement: <Error/>,
     children: [
       {
         path: "/",
@@ -35,7 +39,13 @@ const rotas = createBrowserRouter([
       },
     ],
   },
-])
+
+  {
+    path: "/login",
+    element: <Login/>,
+  },
+]);
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
