@@ -6,23 +6,15 @@ import './assets/App.css'
 
 
 export default function App() {
-  const [logado, setLogado] = useState(false)
+  const [logado, setLogado] = useState(true)
   //const usuario = localStorage.getItem('chaveUsuario');
   //const senha = localStorage.getItem('chaveSenha');
 
   return (
     <div className="App">
-      {
-        logado ? 
-        <>
-          <NavBar/>
-          <Outlet/>
-          <Footer/>
-        </> : <>
-          <Outlet/>
-          <Footer/>
-        </>
-      }
+      <NavBar/>
+      <Outlet/>
+      <Footer/>
     </div>
   )
 }
