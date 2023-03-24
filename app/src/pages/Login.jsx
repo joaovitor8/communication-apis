@@ -22,9 +22,6 @@ export const Login = () => {
     if (check == false) {
       setCheck(true)
     }
-    else {
-      setCheck(false)
-    }
   }
 
   //---------------------------------------------
@@ -41,12 +38,8 @@ export const Login = () => {
         localStorage.setItem("chaveUsuario", usuario)
         localStorage.setItem("chaveSenha", senha)
       }
-
       return navigate("/")
     }
-
-    //BackEnd
-    //axios
   };
 
   //---------------------------------------------
@@ -59,8 +52,8 @@ export const Login = () => {
 
         <form onSubmit={enviar}>
           <label className="inputs">
-            <input type="text" placeholder="Usuario" value={usuario} onChange={pegarUsuario} />
-            <input type="password" placeholder="Senha" value={senha} onChange={pegarSenha} />
+            <input type={"text"} placeholder="Usuario" value={usuario} autoComplete="username" onChange={pegarUsuario} />
+            <input type={"password"} placeholder="Senha" value={senha} autoComplete="current-password" onChange={pegarSenha} />
           </label>
           <label className="check">
             <input type="checkbox" onClick={pegarCheck}/>
