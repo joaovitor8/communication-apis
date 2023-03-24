@@ -13,7 +13,6 @@ export const Cadastro = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
     // Validação dos campos
     if (nome === '' || email === '' || telefone === '' || endereco === '' || cpf === '') {
       setMensagem('Por favor, preencha todos os campos.');
@@ -23,7 +22,6 @@ export const Cadastro = () => {
       // Código para enviar o cadastro para o servidor aqui
       console.log('Dados enviados com sucesso!')
     }
-
     setMensagem('Cadastro realizado com sucesso!');
   }
 
@@ -34,23 +32,23 @@ export const Cadastro = () => {
       <form onSubmit={handleSubmit}>
         <label>
           Nome:
-          <input type="text" value={nome} onChange={(event) => setNome(event.target.value)} />
+          <input type="text" value={nome} onChange={(event) => setNome(event.currentTarget.value)} />
         </label>
         <label>
           E-mail:
-          <input type="email" value={email} onChange={(event) => setEmail(event.target.value)} />
+          <input type="email" value={email} onChange={(event) => setEmail(event.currentTarget.value)} />
         </label>
         <label>
           Telefone:
-          <input type="tel" value={telefone} onChange={(event) => setTelefone(event.target.value)}/>
+          <input type="tel" value={telefone} onChange={(event) => setTelefone(event.currentTarget.value)}/>
         </label>
         <label>
           Endereço:
-          <input type="text" value={endereco} onChange={(event) => setEndereco(event.target.value)}/>
+          <input type="text" value={endereco} onChange={(event) => setEndereco(event.currentTarget.value)}/>
         </label>
         <label>
           CPF:
-          <input type='text' value={cpf} onChange={(event) => setCpf(event.target.value)}/>
+          <input type='text' value={cpf} onChange={(event) => setCpf(event.currentTarget.value)}/>
         </label>
 
         <button type="submit">Cadastrar</button>

@@ -3,13 +3,11 @@ import '../assets/navBar.css'
 
 
 export const NavBar = () => {
-
   const navigate = useNavigate()
   
   const Remover = () => {
     localStorage.removeItem("chaveUsuario")
     localStorage.removeItem("chaveSenha")
-
     return navigate("/login")
   }
 

@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import '../assets/dog.css'
 
-export const Dog = () => {
-  const [imageDog, setImageDog] = useState("");
+
+export const Dog = (): JSX.Element => {
+  const [imageDog, setImageDog] = useState<string>("");
 
   useEffect(() => {
     pegandoDogAleatorio();

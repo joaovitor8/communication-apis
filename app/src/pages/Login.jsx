@@ -7,15 +7,15 @@ export const Login = () => {
   const [usuario, setUsuario] = useState('');
   const [senha, setSenha] = useState('');
   const [check, setCheck] = useState(false)
+  const navigate = useNavigate()
 
-  //---------------------------------------------
-
-  const pegarUsuario = (event) => {
-    setUsuario(event.target.value);
+  
+  const pegarUsuario = (usuarioDigitado) => {
+    setUsuario(usuarioDigitado.target.value);
   };
 
-  const pegarSenha = (event) => {
-    setSenha(event.target.value);
+  const pegarSenha = (senhaDigitada) => {
+    setSenha(senhaDigitada.target.value);
   };
 
   const pegarCheck = () => {
@@ -24,25 +24,20 @@ export const Login = () => {
     }
   }
 
-  //---------------------------------------------
-
-  const navigate = useNavigate()
 
   const enviar = (event) => {
     event.preventDefault();
-    if (usuario == '' || senha == '') {
+    if (usuario === '' || senha === '') {
       window.alert('Login invalido!')
     }
     else {
-      if (check == true) {
+      if (check === true) {
         localStorage.setItem("chaveUsuario", usuario)
         localStorage.setItem("chaveSenha", senha)
       }
       return navigate("/")
     }
   };
-
-  //---------------------------------------------
 
   return (
     <div className="Login">

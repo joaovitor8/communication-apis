@@ -7,7 +7,7 @@ export const Home = () => {
   return (
     <div className="Home">
       <div className='procurarUsers'>
-        <input type="text" placeholder="Pesquisar usuarios" onChange={(e) => console.log(e.target.value)}/>
+        <input type="text" placeholder="Pesquisar usuarios" onChange={(e) => console.log(e.currentTarget.value)}/>
       </div>
 
       <div className='ramdomUsers'>
