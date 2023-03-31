@@ -1,29 +1,31 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { CardCadastro } from '../components/CardCadastro';
+import axios from 'axios';
 import '../assets/cadastro.css'
 
 
-export const Cadastro = () => {
-  const [nome, setNome] = useState('');
-  const [email, setEmail] = useState('');
-  const [telefone, setTelefone] = useState('')
-  const [endereco, setEndereco] = useState('')
-  const [cpf, setCpf] = useState('')
-  const [mensagem, setMensagem] = useState('');
+export const Cadastro = (): JSX.Element => {
+  const [nome, setNome] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [telefone, setTelefone] = useState<string>('')
+  const [endereco, setEndereco] = useState<string>('')
+  const [cpf, setCpf] = useState<string>('')
+  const [mensagem, setMensagem] = useState<string>('');
 
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Validação dos campos
+  const handleSubmit = (event:  React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
     if (nome === '' || email === '' || telefone === '' || endereco === '' || cpf === '') {
-      setMensagem('Por favor, preencha todos os campos.');
+      setMensagem('Por favor, preencha todos os campos.')
       return;
     }
     else {
-      // Código para enviar o cadastro para o servidor aqui
-      console.log('Dados enviados com sucesso!')
+      const user = { nome, email, telefone, endereco, cpf };
+      axios.post('http://localhost:8888/api/users', user);
+      setMensagem('Cadastro realizado com sucesso!')
     }
-    setMensagem('Cadastro realizado com sucesso!');
   }
+
 
   return (
     <div className='Cadastro'>
@@ -58,9 +60,11 @@ export const Cadastro = () => {
 
       <div>
         <h1>Usuarios Cadastrados</h1>
+
+        <CardCadastro />
       </div>
     </div>
   );
 }
 
-export default Cadastro;
+
