@@ -35,4 +35,19 @@ app.get('/api/users', (req, res) => {
 })
 
 
+app.get('/api/users/:id', (req, res) => {
+  const { id } = req.params
+  const usuario = usuarios.find(u => u.id === id)
+  return res.json(usuario)
+})
+
+
+app.delete('/api/users/:id', (req, res) => {
+  const { id } = req.params
+  const usuarioIndex = usuarios.findIndex((u) => u.id === id)
+
+  usuarios.splice(usuarioIndex, 1)
+})
+
+
 app.listen(8888, () => {console.log('Servidor rodando na porta http://localhost:8888')})

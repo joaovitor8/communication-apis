@@ -12,17 +12,26 @@ interface UserApi {
   id: string
 }
 
+type Atualizar = {
+  atualizarCadastros: boolean,
+}
 
-export const CardCadastro = (): JSX.Element => {
+
+export const CardCadastro = ({ atualizarCadastros}: Atualizar): JSX.Element => {
   const [users, setUsers] = useState<UserApi[]>([])
 
   useEffect(() => {
     PegarApi()
-  },[])
+  },[atualizarCadastros])
 
   const PegarApi = () => {
     axios.get('http://localhost:8888/api/users')
       .then(res => setUsers(res.data))
+  }
+
+
+  const excluirUsuario = (id: string) => {
+    axios.delete(`http://localhost:8888/api/users/${id}`)
   }
 
 
@@ -35,6 +44,10 @@ export const CardCadastro = (): JSX.Element => {
           <p>Telefone: {user.telefone}</p>
           <p>Endereço: {user.endereco}</p>
           <p>CPF: {user.cpf}</p>
+          <div className='btns'>
+            <button onClick={() => excluirUsuario(user.id)}>Excluir</button>
+            <button>Modificar</button>
+          </div>
         </div>
       ))}
     </>

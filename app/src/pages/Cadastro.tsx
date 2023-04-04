@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { CardCadastro } from '../components/CardCadastro';
 import axios from 'axios';
 import '../assets/cadastro.css'
@@ -11,9 +11,10 @@ export const Cadastro = (): JSX.Element => {
   const [endereco, setEndereco] = useState<string>('')
   const [cpf, setCpf] = useState<string>('')
   const [mensagem, setMensagem] = useState<string>('');
+  const [atualizarCadastros, setAtualizarCadastros] = useState<boolean>(false);
 
 
-  const handleSubmit = (event:  React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event:  React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     if (nome === '' || email === '' || telefone === '' || endereco === '' || cpf === '') {
       setMensagem('Por favor, preencha todos os campos.')
@@ -21,10 +22,22 @@ export const Cadastro = (): JSX.Element => {
     }
     else {
       const user = { nome, email, telefone, endereco, cpf };
-      axios.post('http://localhost:8888/api/users', user);
+      await axios.post('http://localhost:8888/api/users', user);
       setMensagem('Cadastro realizado com sucesso!')
+      // setNome('')
+      // setEmail('')
+      // setTelefone('')
+      // setEndereco('')
+      // setCpf('')
+      setMensagem('')
+      setAtualizarCadastros(true);
     }
   }
+
+  
+  useEffect(() => {
+    setAtualizarCadastros(false);
+  }, [atualizarCadastros]);
 
 
   return (
@@ -61,7 +74,7 @@ export const Cadastro = (): JSX.Element => {
       <div>
         <h1>Usuarios Cadastrados</h1>
 
-        <CardCadastro />
+        <CardCadastro atualizarCadastros={atualizarCadastros} />
       </div>
     </div>
   );
