@@ -1,9 +1,9 @@
-import { CardRandomUsers } from '@/components/CardRandomUsers'
+import { CardUsers } from '@/components/CardUsers'
 
 export default function Home() {
   return (
     <div className="h-full">
-      <CardRandomUsers />
+      <CardUsers />
     </div>
   )
 }
