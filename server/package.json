@@ -18,6 +18,7 @@
     "typescript": "^5.0.4"
   },
   "dependencies": {
-    "fastify": "^4.17.0"
+    "fastify": "^4.17.0",
+    "fastify-mongodb": "^4.2.0"
   }
 }
