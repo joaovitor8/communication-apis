@@ -1,4 +1,12 @@
+'use client'
+
+import { CatApi } from "@/app/api/api"
+import { useState } from "react"
+
 export default function Cat() {
+  const [pegarCat, setPegarCat] = useState()
+
+
   return (
     <div className="flex h-screen flex-col items-center space-y-3">
       <div className="flex h-24 w-4/5 items-center justify-center space-x-3 bg-slate-400">
