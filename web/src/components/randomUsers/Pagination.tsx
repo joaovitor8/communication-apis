@@ -25,31 +25,41 @@ export const Pagination = () => {
   const currentItens = dados.slice(startIndex, endIndex)
 
   // Pegando a API
+  // const pegarRandomUsers = () => {
+  //   axios.get('https://randomuser.me/api/?results=150')
+  //   .then((response) => {
+  //     const data = response.data.results
+  //     const userList: RandomUserApi[] = data.map((user: any) => ({
+  //       name: `${user.name.first} ${user.name.last}`,
+  //       email: user.email,
+  //       username: user.login.username,
+  //       age: user.dob.age,
+  //       picture: user.picture.large,
+  //     }))
+  //     setDados(userList)
+  //   })
+  //   .catch((error) => { console.log(error) })
+  // }
+
   const pegarRandomUsers = () => {
-    axios.get('https://randomuser.me/api/?results=150')
-    .then((response) => {
-      const data = response.data.results
-      const userList: RandomUserApi[] = data.map((user: any) => ({
-        name: `${user.name.first} ${user.name.last}`,
-        email: user.email,
-        username: user.login.username,
-        age: user.dob.age,
-        picture: user.picture.large,
-      }))
-      setDados(userList)
-    })
-    .catch((error) => { console.log(error) })
+    const endpoints = []
+    for (let i = 1; i <= 150; i++) {
+      endpoints.push(`https://randomuser.me/api/?results=${i}`)
+    }
+    axios
+      .all(endpoints.map((endpoint) => axios.get(endpoint)))
+      .then((res) => setDados(res.map((r) => r.data)))
   }
 
   useEffect(() => {
     pegarRandomUsers()
   }, [])
 
-  const filtrarUsers = (valor: string) => {
-    if (valor === '') {
+  const filtrarUsers = (nome: string) => {
+    if (nome === '') {
       pegarRandomUsers()
     } else {
-      const filtrarName = dados.filter((d) => d.name.includes(valor))
+      const filtrarName = dados.filter((d) => d.name.includes(nome))
       setDados(filtrarName)
     }
   }

@@ -3,7 +3,7 @@ const fastifyMongoDB = require('fastify-mongodb')
 
 const app = fastify()
 
-const users = []
+const users: any[] = []
 
 
 // Criar
