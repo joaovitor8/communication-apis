@@ -1,70 +1,32 @@
-const fastify = require('fastify')
-const fastifyMongoDB = require('fastify-mongodb')
+import fastify from 'fastify'
 
 const app = fastify()
 
-app.register(fastifyMongoDB, {
-  forceClose: true,
-  url: 'mongodb://mongo:FkAC63aMF8h0HKGgbZAq@containers-us-west-57.railway.app:7170',
-})
-
+// Banco de Dados improvisado
+const DB: any[] = []
 
 // Criar um usuário
-app.post('/user', async (request, reply) => {
-  const collection = app.mongo.db.collection('users')
+app.post('/user', async (request: any, reply: any) => {
   const user = request.body
-  const result = await collection.insertOne(user)
-  reply.send(result.ops[0])
+  DB.push(user)
+  reply.send(user)
 })
 
 // Pegar todos os usuários
-app.get('/user', async (request, reply) => {
-  const collection = app.mongo.db.collection('users')
-  const users = await collection.find().toArray()
-  reply.send(users)
+app.get('/user', async (request: any, reply: any) => {
+  reply.send(DB)
 })
 
 // Pegar um usuário
-app.get('/user/:id', async (request, reply) => {
-  const collection = app.mongo.db.collection('users')
-  const id = request.params.id
-  const user = await collection.findOne({ id })
-  if (!user) {
-    reply.status(404).send({ message: 'Usuário não encontrado' })
-  } else {
-    reply.send(user)
-  }
-})
+app.get('/user/:id', async (request: any, reply: any) => {})
 
 // Atualizar um usuário
-app.put('/user/:id', async (request, reply) => {
-  const collection = app.mongo.db.collection('users')
-  const id = request.params.id
-  const updatedUser = request.body
-  const result = await collection.updateOne({ id }, { $set: updatedUser })
-  if (result.modifiedCount === 0) {
-    reply.status(404).send({ message: 'Usuário não encontrado' })
-  } else {
-    reply.send(updatedUser)
-  }
-})
+app.put('/user/:id', async (request: any, reply: any) => {})
 
 // Deletar um usuário
-app.delete('/user/:id', async (request, reply) => {
-  const collection = app.mongo.db.collection('users')
-  const id = request.params.id
-  const result = await collection.findOneAndDelete({ id })
-  if (!result.value) {
-    reply.status(404).send({ message: 'Usuário não encontrado' })
-  } else {
-    reply.send(result.value)
-  }
-})
+app.delete('/user/:id', async (request: any, reply: any) => {})
 
-app
-  .listen({
-    port: 3333,
-  })
-  .then(() => {
-    console.log('Servidor rodando na porta: http://localhost:3333')
-  })
+// Iniciar Servidor
+app.listen({
+ port: 3333
+}).then(() => { console.log('Servidor rodando na porta: http://localhost:3333')})
