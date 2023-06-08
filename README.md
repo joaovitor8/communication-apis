@@ -26,3 +26,4 @@ Construir uma aplicação web (frontend e backend) capaz de realizar a comunica�
 
 
 https://www.sharenergy.com.br/
+https://www.youtube.com/watch?v=YSlzQlEqTBg

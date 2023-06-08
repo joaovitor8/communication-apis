@@ -18,51 +18,43 @@ export const Pagination = () => {
   const [itensPorPagina, setItensPorPagina] = useState<number>(15)
   const [paginaVisivel, setPaginaVisivel] = useState<number>(0)
 
-  // Confg para a Paginação  -  Video: https://www.youtube.com/watch?v=YSlzQlEqTBg
+  //Confg para a Paginação
   const paginas = Math.ceil(dados.length / itensPorPagina)
   const startIndex = paginaVisivel * itensPorPagina
   const endIndex = startIndex + itensPorPagina
   const currentItens = dados.slice(startIndex, endIndex)
 
-  // Pegando a API
-  // const pegarRandomUsers = () => {
-  //   axios.get('https://randomuser.me/api/?results=150')
-  //   .then((response) => {
-  //     const data = response.data.results
-  //     const userList: RandomUserApi[] = data.map((user: any) => ({
-  //       name: `${user.name.first} ${user.name.last}`,
-  //       email: user.email,
-  //       username: user.login.username,
-  //       age: user.dob.age,
-  //       picture: user.picture.large,
-  //     }))
-  //     setDados(userList)
-  //   })
-  //   .catch((error) => { console.log(error) })
-  // }
-
   const pegarRandomUsers = () => {
-    const endpoints = []
-    for (let i = 1; i <= 150; i++) {
-      endpoints.push(`https://randomuser.me/api/?results=${i}`)
-    }
-    axios
-      .all(endpoints.map((endpoint) => axios.get(endpoint)))
-      .then((res) => setDados(res.map((r) => r.data)))
+    axios.get('https://randomuser.me/api/?results=150')
+    .then((response) => {
+      const data = response.data.results
+      const userList: RandomUserApi[] = data.map((user: any) => ({
+        name: `${user.name.first} ${user.name.last}`,
+        email: user.email,
+        username: user.login.username,
+        age: user.dob.age,
+        picture: user.picture.large,
+      }))
+      setDados(userList)
+    })
+    .catch((error) => { console.log(error) })
   }
 
   useEffect(() => {
     pegarRandomUsers()
   }, [])
 
-  const filtrarUsers = (nome: string) => {
-    if (nome === '') {
+  const filtrarUsers = (valor: string) => {
+    if (valor === '') {
       pegarRandomUsers()
     } else {
-      const filtrarName = dados.filter((d) => d.name.includes(nome))
-      setDados(filtrarName)
+      const filtrarNick = dados.filter((d) => d.username.includes(valor))
+      const filtrarNome = dados.filter((d) => d.name.includes(valor))
+      const filtrarEmail = dados.filter((d) => d.email.includes(valor))
+      setDados(filtrarNick)
     }
   }
+  
 
   return (
     <>
