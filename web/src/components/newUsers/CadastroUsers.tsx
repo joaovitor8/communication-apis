@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from "react"
+import axios from "axios"
 
 
 export const CadastroUsers = () => {
@@ -12,15 +13,19 @@ export const CadastroUsers = () => {
 
   const handleSubmit = async (event: any) => {
     event.preventDefault()
-    const response = await fetch('http://localhost:3333/user', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ nomeCompleto, email, telefone, cpf, endereco })
-    })
-    const data = await response.json()
-    console.log(data)
+    try {
+      const response = await axios.post('http://localhost:3333/users/', { nomeCompleto, email, telefone, cpf, endereco });
+      console.log(response.data);
+    } catch (error) {
+      console.error('Algo deu errado', error);
+    }
+
+    // const response = await fetch('http://localhost:3333/users', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify({ nomeCompleto, email, telefone, cpf, endereco })
+    // })
+    // const data = await response.json()
   }
 
 
