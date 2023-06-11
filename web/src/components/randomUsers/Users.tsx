@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 
-import { RandomUserApi } from "./Pagination"
+import { RandomUserApi } from './Pagination'
 
-export const Users = ({currentItens}: any) => {
+export const Users = ({ currentItens }: any) => {
   return (
     <div className="flex flex-wrap justify-center">
       {currentItens.map((itens: RandomUserApi, key: number) => (

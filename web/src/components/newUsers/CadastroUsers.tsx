@@ -1,8 +1,7 @@
 'use client'
 
-import { useState } from "react"
-import axios from "axios"
-
+import { useState } from 'react'
+import axios from 'axios'
 
 export const CadastroUsers = () => {
   const [nomeCompleto, setNomeCompleto] = useState('')
@@ -10,24 +9,19 @@ export const CadastroUsers = () => {
   const [telefone, setTelefone] = useState('')
   const [cpf, setCpf] = useState('')
   const [endereco, setEndereco] = useState('')
+  const [formData, setFormData] = useState({})
 
   const handleSubmit = async (event: any) => {
     event.preventDefault()
+    setFormData({ nomeCompleto, email, telefone, cpf, endereco })
     try {
-      const response = await axios.post('http://localhost:3333/users/', { nomeCompleto, email, telefone, cpf, endereco });
-      console.log(response.data);
+      const response = await axios.post('http://localhost:3333/users', formData)
+      console.log(response.data)
+      console.log(formData)
     } catch (error) {
-      console.error('Algo deu errado', error);
+      console.error('Algo deu errado', error)
     }
-
-    // const response = await fetch('http://localhost:3333/users', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify({ nomeCompleto, email, telefone, cpf, endereco })
-    // })
-    // const data = await response.json()
   }
-
 
   return (
     <form onSubmit={handleSubmit} className="flex h-80 w-4/5 flex-col items-center justify-center space-y-3">

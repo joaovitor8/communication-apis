@@ -1,4 +1,12 @@
 const fastify = require("fastify")() // Instanciando o fastify
+const cors = require("@fastify/cors")
+
+
+fastify.register(cors, {
+  origin: '*',
+  methods: ['GET', 'POST']
+})
+
 
 //Registando o DB mongoDB
 fastify.register(require("@fastify/mongodb"), {

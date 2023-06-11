@@ -1,9 +1,9 @@
 'use client'
 
-import { useEffect, useState } from "react"
-import { Users } from "./Users"
-import { SearchUsers } from "./SearchUsers"
-import axios from "axios"
+import { useEffect, useState } from 'react'
+import { Users } from './Users'
+import { SearchUsers } from './SearchUsers'
+import axios from 'axios'
 
 export interface RandomUserApi {
   name: string
@@ -18,26 +18,29 @@ export const Pagination = () => {
   const [itensPorPagina, setItensPorPagina] = useState<number>(15)
   const [paginaVisivel, setPaginaVisivel] = useState<number>(0)
 
-  //Confg para a Paginação
+  // Confg para a Paginação
   const paginas = Math.ceil(dados.length / itensPorPagina)
   const startIndex = paginaVisivel * itensPorPagina
   const endIndex = startIndex + itensPorPagina
   const currentItens = dados.slice(startIndex, endIndex)
 
   const pegarRandomUsers = () => {
-    axios.get('https://randomuser.me/api/?results=150')
-    .then((response) => {
-      const data = response.data.results
-      const userList: RandomUserApi[] = data.map((user: any) => ({
-        name: `${user.name.first} ${user.name.last}`,
-        email: user.email,
-        username: user.login.username,
-        age: user.dob.age,
-        picture: user.picture.large,
-      }))
-      setDados(userList)
-    })
-    .catch((error) => { console.log(error) })
+    axios
+      .get('https://randomuser.me/api/?results=150')
+      .then((response) => {
+        const data = response.data.results
+        const userList: RandomUserApi[] = data.map((user: any) => ({
+          name: `${user.name.first} ${user.name.last}`,
+          email: user.email,
+          username: user.login.username,
+          age: user.dob.age,
+          picture: user.picture.large,
+        }))
+        setDados(userList)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   }
 
   useEffect(() => {
@@ -54,7 +57,6 @@ export const Pagination = () => {
       setDados(filtrarNick)
     }
   }
-  
 
   return (
     <>
@@ -66,9 +68,9 @@ export const Pagination = () => {
         })}
       </div>
 
-      <SearchUsers filtrarUsers={filtrarUsers}/>
+      <SearchUsers filtrarUsers={filtrarUsers} />
 
-      <Users currentItens={currentItens}/>
+      <Users currentItens={currentItens} />
     </>
   )
 }

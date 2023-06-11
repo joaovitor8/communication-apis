@@ -11,20 +11,20 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   const logado = true
-  //const logado = false
+  // const logado = false
 
   return (
     <html lang="en">
       <body>
-        {logado ? 
+        {logado ? (
           <>
             <Navbar />
             {children}
             <Footer />
           </>
-        :
+        ) : (
           <Login />
-        }
+        )}
       </body>
     </html>
   )
