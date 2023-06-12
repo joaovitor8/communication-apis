@@ -25,5 +25,6 @@ Construir uma aplicação web (frontend e backend) capaz de realizar a comunica�
 - HTML e CSS
 
 
-https://www.sharenergy.com.br/
-https://www.youtube.com/watch?v=YSlzQlEqTBg
+## Extra
+- https://www.sharenergy.com.br/
+- https://www.youtube.com/watch?v=YSlzQlEqTBg
