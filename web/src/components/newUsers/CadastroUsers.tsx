@@ -9,15 +9,11 @@ export const CadastroUsers = () => {
   const [telefone, setTelefone] = useState('')
   const [cpf, setCpf] = useState('')
   const [endereco, setEndereco] = useState('')
-  const [formData, setFormData] = useState({})
 
   const handleSubmit = async (event: any) => {
     event.preventDefault()
-    setFormData({ nomeCompleto, email, telefone, cpf, endereco })
     try {
-      const response = await axios.post('http://localhost:3333/users', formData)
-      console.log(response.data)
-      console.log(formData)
+      await axios.post('http://localhost:3333/users', { nomeCompleto, email, telefone, cpf, endereco })
     } catch (error) {
       console.error('Algo deu errado', error)
     }

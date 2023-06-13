@@ -3,15 +3,8 @@
 import { useEffect, useState } from 'react'
 import { Users } from './Users'
 import { SearchUsers } from './SearchUsers'
+import { RandomUserApi } from '../Types'
 import axios from 'axios'
-
-export interface RandomUserApi {
-  name: string
-  email: string
-  username: string
-  age: number
-  picture: string
-}
 
 export const Pagination = () => {
   const [dados, setDados] = useState<RandomUserApi[]>([])

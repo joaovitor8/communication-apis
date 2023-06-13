@@ -2,17 +2,11 @@
 
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-
-interface Api {
-  nome: string
-  email: string
-  tel: number
-  cpf: number
-  end: string
-}
+import { DeletarUser } from './buttons/DeletarUser'
+import { UsersDB } from '../Types'
 
 export const MostrarUsers = () => {
-  const [users, setUsers] = useState<Api[]>([])
+  const [users, setUsers] = useState<UsersDB[]>([])
 
   useEffect(() => {
     GetUsers()
@@ -22,6 +16,7 @@ export const MostrarUsers = () => {
     try {
       const response = await axios.get('http://localhost:3333/users')
       setUsers(response.data)
+      // console.log(response.data[1]._id)
     } catch (erro) {
       console.error('Algo deu errado', erro)
     }
@@ -30,10 +25,7 @@ export const MostrarUsers = () => {
   return (
     <div className="flex w-full flex-wrap bg-slate-200 px-5 py-5">
       {users.map((user, index) => (
-        <div
-          key={index}
-          className="m-1 flex h-44 w-60 flex-col justify-between bg-slate-400 px-1 py-1"
-        >
+        <div key={index} className="m-1 flex h-44 w-60 flex-col justify-between bg-slate-400 px-1 py-1">
           <div>
             <p>Nome: {user.nome}</p>
             <p>Email: {user.email}</p>
@@ -44,7 +36,7 @@ export const MostrarUsers = () => {
 
           <div className="flex w-full justify-end space-x-5">
             <button>Atualizar</button>
-            <button>Deletar</button>
+            <DeletarUser id={user._id} />
           </div>
         </div>
       ))}
