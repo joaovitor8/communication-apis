@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import { AtualizarUsers } from './buttons/AtualizarUser'
 import { DeletarUser } from './buttons/DeletarUser'
 import { UsersDB } from '../Types'
 
@@ -16,7 +17,6 @@ export const MostrarUsers = () => {
     try {
       const response = await axios.get('http://localhost:3333/users')
       setUsers(response.data)
-      // console.log(response.data[1]._id)
     } catch (erro) {
       console.error('Algo deu errado', erro)
     }
@@ -35,8 +35,8 @@ export const MostrarUsers = () => {
           </div>
 
           <div className="flex w-full justify-end space-x-5">
-            <button>Atualizar</button>
-            <DeletarUser id={user._id} />
+            <AtualizarUsers />
+            <DeletarUser id={user._id} getUsers={GetUsers} />
           </div>
         </div>
       ))}

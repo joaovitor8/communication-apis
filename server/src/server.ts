@@ -1,12 +1,14 @@
 const fastify = require("fastify")() // Instanciando o fastify
-const cors = require("@fastify/cors")
+const cors = require("@fastify/cors") // Autorização para o Fron-end ter acesso
+const { ObjectId } = require('mongodb')
 
+//-----------------------------------------------
 
+// Registrando a autorização
 fastify.register(cors, {
   origin: '*',
-  methods: ['GET', 'POST']
+  methods: ['POST', 'GET', 'DELETE']
 })
-
 
 //Registando o DB mongoDB
 fastify.register(require("@fastify/mongodb"), {
@@ -38,23 +40,24 @@ fastify.get('/users', async (request: any, reply: any) => {
 })
 
 // Pegar um usuário
-fastify.get('/users/:id', async (request: any, reply: any) => {
-  const collection = fastify.mongo.db.collection('users') // Estou no DB de usuarios
-  const id = request.params.ObjectId
-  const user = await collection.findOne( id )
-  if (!user) {
-    reply.status(404).send({ message: 'Usuário não encontrado' })
-  } else {
-    reply.send(user)
-  }
-})
+// fastify.get('/users/:id', async (request: any, reply: any) => {
+//   const collection = fastify.mongo.db.collection('users') // Estou no DB de usuarios
+//   const id = request.params.id
+//   const user = await collection.findOne({ _id: new ObjectId(id) })
+//   console.log(user)
+//   if (!user) {
+//     reply.status(404).send({ message: 'Usuário não encontrado' })
+//   } else {
+//     reply.send(user)
+//   }
+// })
 
 // Atualizar um usuário
 fastify.put('/users/:id', async (request: any, reply: any) => {
   const collection = fastify.mongo.db.collection('users')
-  const id = request.params._id
+  const id = request.params.id
   const updatedUser = request.body
-  const result = await collection.updateOne({ id }, { $set: updatedUser })
+  const result = await collection.updateOne({ _id: new ObjectId(id) }, { $set: updatedUser })
   if (result.modifiedCount === 0) {
     reply.status(404).send({ message: 'Usuário não encontrado' })
   } else {
@@ -65,8 +68,8 @@ fastify.put('/users/:id', async (request: any, reply: any) => {
 // Deletar um usuário
 fastify.delete('/users/:id', async (request: any, reply: any) => {
   const collection = fastify.mongo.db.collection('users')
-  const id = request.params._id
-  const result = await collection.findOneAndDelete({ id })
+  const id = request.params.id
+  const result = await collection.findOneAndDelete({ _id: new ObjectId(id) })
   if (!result.value) {
     reply.status(404).send({ message: 'Usuário não encontrado' })
   } else {

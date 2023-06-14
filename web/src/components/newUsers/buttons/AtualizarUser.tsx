@@ -1,16 +1,15 @@
 import axios from 'axios'
-import { IdGetUsers } from '@/components/Types'
 
-export const DeletarUser = ({ id, getUsers }: IdGetUsers) => {
+export const AtualizarUsers = () => {
 
   const AtualizarPag = () => {
-    Deletar()
-    getUsers()
+    Atualizar()
+    // GetUsers()
   }
 
-  const Deletar = async () => {
+  const Atualizar = async () => {
     try {
-      await axios.delete(`http://localhost:3333/users/${id}`)
+      await axios.put(`http://localhost:3333/users/${''}`)
     } catch (erro) {
       console.error('Algo deu errado', erro)
     }
@@ -18,7 +17,7 @@ export const DeletarUser = ({ id, getUsers }: IdGetUsers) => {
 
   return (
     <button className="rounded bg-slate-600 px-2 py-1 text-white" onClick={AtualizarPag}>
-      Deletar
+      Atualizar
     </button>
   )
 }

@@ -17,7 +17,7 @@ export const Pagination = () => {
   const endIndex = startIndex + itensPorPagina
   const currentItens = dados.slice(startIndex, endIndex)
 
-  const pegarRandomUsers = () => {
+  const PegarRandomUsers = () => {
     axios
       .get('https://randomuser.me/api/?results=150')
       .then((response) => {
@@ -37,12 +37,12 @@ export const Pagination = () => {
   }
 
   useEffect(() => {
-    pegarRandomUsers()
+    PegarRandomUsers()
   }, [])
 
-  const filtrarUsers = (valor: string) => {
+  const FiltrarUsers = (valor: string) => {
     if (valor === '') {
-      pegarRandomUsers()
+      PegarRandomUsers()
     } else {
       const filtrarNick = dados.filter((d) => d.username.includes(valor))
       const filtrarNome = dados.filter((d) => d.name.includes(valor))
@@ -61,7 +61,7 @@ export const Pagination = () => {
         })}
       </div>
 
-      <SearchUsers filtrarUsers={filtrarUsers} />
+      <SearchUsers filtrarUsers={FiltrarUsers} />
 
       <Users currentItens={currentItens} />
     </>
