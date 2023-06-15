@@ -13,7 +13,14 @@ export const CadastroUsers = () => {
   const handleSubmit = async (event: any) => {
     event.preventDefault()
     try {
-      await axios.post('http://localhost:3333/users', { nomeCompleto, email, telefone, cpf, endereco })
+      await axios.post('http://localhost:3333/users', {
+        nomeCompleto,
+        email,
+        telefone,
+        cpf,
+        endereco,
+      })
+      window.location.reload(true)
     } catch (error) {
       console.error('Algo deu errado', error)
     }
@@ -46,8 +53,8 @@ export const CadastroUsers = () => {
         <input type="text" placeholder="Rua-n° / Cidade-Estado" onChange={(e) => setEndereco(e.target.value)} className="w-1/2 rounded-md border-0 py-1.5 pl-5 shadow-sm ring-1 ring-gray-300 sm:text-sm sm:leading-6"/>
       </div>
 
-      <div className="max-lg:flex max-lg:w-full max-lg:justify-end ">
-        <button type="submit" className="flex  justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Cadastrar usuario</button>
+      <div className="max-lg:flex max-lg:w-full max-lg:justify-end">
+        <button type="submit" className="flex justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Cadastrar usuario</button>
       </div>
     </form>
   )

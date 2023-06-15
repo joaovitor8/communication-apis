@@ -2,8 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import { AtualizarUsers } from './buttons/AtualizarUser'
-import { DeletarUser } from './buttons/DeletarUser'
+import { AtualizarUsers, DeletarUser } from './Buttons'
 import { UsersDB } from '../Types'
 
 export const MostrarUsers = () => {
@@ -25,7 +24,10 @@ export const MostrarUsers = () => {
   return (
     <div className="flex w-full flex-wrap bg-slate-200 px-5 py-5">
       {users.map((user, index) => (
-        <div key={index} className="m-1 flex h-44 w-60 flex-col justify-between bg-slate-400 px-1 py-1">
+        <div
+          key={index}
+          className="m-1 flex h-44 w-60 flex-col justify-between bg-slate-400 px-1 py-1"
+        >
           <div>
             <p>Nome: {user.nome}</p>
             <p>Email: {user.email}</p>
@@ -36,7 +38,7 @@ export const MostrarUsers = () => {
 
           <div className="flex w-full justify-end space-x-5">
             <AtualizarUsers />
-            <DeletarUser id={user._id} getUsers={GetUsers} />
+            <DeletarUser id={user._id} />
           </div>
         </div>
       ))}

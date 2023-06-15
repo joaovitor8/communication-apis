@@ -1,4 +1,4 @@
-export const Login = () => {
+export default function Login() {
   return (
     <div className="flex flex-col items-center justify-center px-6 py-12">
       <div className="flex h-[450px] w-[600px] flex-col rounded-md border-x border-y">

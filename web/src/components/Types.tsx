@@ -10,11 +10,6 @@ export interface Pesquisar {
   filtrarUsers: (valor: string) => void
 }
 
-export interface IdGetUsers {
-  getUsers: () => void
-  id: number
-}
-
 export interface UsersDB {
   _id: number
   nome: string
