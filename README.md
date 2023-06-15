@@ -1,8 +1,8 @@
-# O Desafio
+# Descrição da aplicação
 
-<p>Construir uma aplicação web (frontend e backend) capaz de realizar a comunicação com APIs distintas, além de um CRUD.</p>
+<p>Aplicação web (frontend e backend) capaz de realizar a comunicação com APIs distintas, além de um CRUD.</p>
 
-## Aplicação
+## Desafio
 
 <ul>
   <li>[❌] A página inicial da aplicação deve ser uma `Login Page`</li>
@@ -37,7 +37,7 @@
 ## MongoDB
 
 <ol>
-  <li>Instale a ferramenta do MongoDB em: https://www.mongodb.com/try/download/community</li>
+  <li>Instale a ferramenta do MongoDB, <a href="https://www.mongodb.com/try/download/community" target="_blank" >aqui</a> </li>
   <li>(...)</li>
 </ol>
 
