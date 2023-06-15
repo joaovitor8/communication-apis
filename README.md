@@ -13,7 +13,7 @@
   <li>[✔/❌] Em uma quarta página, deve haver uma lista de clientes, através da qual o usuário deve ser capaz de cadastrar novos clientes, visualizar informações de um cliente específico, atualizar um cliente e deletar clientes. O cadastro deve possuir nome, email, telefone, endereço e cpf.</li>
 </ul>
 
-### Requisitos da aplicação e de código [✔]
+## Requisitos da aplicação e de código [✔]
 
 <ul>
   <li>[✔] Interface amigável, bonita e limpa</li>
@@ -21,7 +21,7 @@
   <li>[✔] Clean Code</li>
 </ul>
 
-### Ferramentas e Stack a ser utilizado [✔]
+## Ferramentas e Stack a ser utilizado [✔]
 
 <ul>
   <li>[✔] ReactJS para o frontend</li>
@@ -30,7 +30,26 @@
   <li>[✔] HTML e CSS</li>
 </ul>
 
-## Extra
+# Como usar
+
+<p>Passo a passo de como baixar e configurar o projeto</p>
+
+## MongoDB
+
+<ol>
+  <li>Instale a ferramenta do MongoDB em: https://www.mongodb.com/try/download/community</li>
+  <li>(...)</li>
+</ol>
+
+## Web / Server
+
+<ol>
+  <li>Baixe o repositorio e estraia os arquivos</li>
+  <li>Abra o arquivo e instale as dependencias com: <code>npm install</code></li>
+  <li>Apos a instalação inicie ambos com: <code>npm run dev</code></li>
+</ol>
+
+# Materiais de estudo
 
 <ul>
   <li>[Paginação](https://www.youtube.com/watch?v=YSlzQlEqTBg)</li>
