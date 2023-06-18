@@ -20,7 +20,6 @@ export const CadastroUsers = () => {
         cpf,
         endereco,
       })
-      window.location.reload(true)
     } catch (error) {
       console.error('Algo deu errado', error)
     }

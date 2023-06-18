@@ -11,7 +11,7 @@ export const MostrarUsers = () => {
 
   useEffect(() => {
     getUsersServer()
-  }, [])
+  }, [users])
 
   const getUsersServer = async () => {
     try {

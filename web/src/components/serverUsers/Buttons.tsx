@@ -23,7 +23,6 @@ export const DeletarUser = ({ id }: any) => {
   const Deletar = async () => {
     try {
       await axios.delete(`http://localhost:3333/users/${id}`)
-      window.location.reload(true)
     } catch (erro) {
       console.error('Algo deu errado', erro)
     }

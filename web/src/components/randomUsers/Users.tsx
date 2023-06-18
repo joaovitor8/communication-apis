@@ -23,7 +23,7 @@ export const Users = ({ currentItens }: any) => {
             </p>
             <p>
               <span className="font-bold">Idade: </span>
-              {itens.age}
+              {itens.age} anos
             </p>
           </div>
         </div>
