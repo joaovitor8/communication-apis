@@ -7,7 +7,7 @@ export interface RandomUserApi {
 }
 
 export interface Pesquisar {
-  filtrarUsers: (valor: string) => void
+  filterUsers: (valor: string) => void
 }
 
 export interface UsersDB {

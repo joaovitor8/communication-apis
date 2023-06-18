@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { Users } from './Users'
-import { SearchUsers } from './SearchUsers'
+import { SearchUsers } from '../SearchUsers'
 import { RandomUserApi } from '../Types'
 import axios from 'axios'
 
@@ -17,7 +17,7 @@ export const Pagination = () => {
   const endIndex = startIndex + itensPorPagina
   const currentItens = dados.slice(startIndex, endIndex)
 
-  const PegarRandomUsers = () => {
+  const getRandomUsersApi = () => {
     axios
       .get('https://randomuser.me/api/?results=150')
       .then((response) => {
@@ -37,17 +37,20 @@ export const Pagination = () => {
   }
 
   useEffect(() => {
-    PegarRandomUsers()
+    getRandomUsersApi()
   }, [])
 
-  const FiltrarUsers = (valor: string) => {
+  const filterUsers = (valor: string) => {
     if (valor === '') {
-      PegarRandomUsers()
+      getRandomUsersApi()
     } else {
-      const filtrarNick = dados.filter((d) => d.username.includes(valor))
-      const filtrarNome = dados.filter((d) => d.name.includes(valor))
-      const filtrarEmail = dados.filter((d) => d.email.includes(valor))
-      setDados(filtrarNick)
+      const filtrar = dados.filter(
+        (d) =>
+          d.username.includes(valor) ||
+          d.name.includes(valor) ||
+          d.email.includes(valor),
+      )
+      setDados(filtrar)
     }
   }
 
@@ -56,12 +59,19 @@ export const Pagination = () => {
       <div className="space-x-1">
         {Array.from(Array(paginas), (item, index) => {
           return (
-            <button key={index} value={index} className="h-10 w-10 bg-green-500" onClick={(e) => setPaginaVisivel(Number(e.currentTarget.value))}>{index + 1}</button>
+            <button
+              key={index}
+              value={index}
+              className="h-10 w-10 bg-green-500"
+              onClick={(e) => setPaginaVisivel(Number(e.currentTarget.value))}
+            >
+              {index + 1}
+            </button>
           )
         })}
       </div>
 
-      <SearchUsers filtrarUsers={FiltrarUsers} />
+      <SearchUsers filterUsers={filterUsers} />
 
       <Users currentItens={currentItens} />
     </>
