@@ -14,38 +14,22 @@
   <li>[✔/❌] Em uma quarta página, deve haver uma lista de clientes, através da qual o usuário deve ser capaz de cadastrar novos clientes, visualizar informações de um cliente específico, atualizar um cliente e deletar clientes. O cadastro deve possuir nome, email, telefone, endereço e cpf.</li>
 </ul>
 
-## Requisitos da aplicação e de código [✔]
+## Requisitos da aplicação e de código
 
 <ul>
-  <li>[✔] Interface amigável, bonita e limpa</li>
-  <li>[✔] Responsividade</li>
-  <li>[✔] Clean Code</li>
+  <li>Interface amigável, bonita e limpa</li>
+  <li>Responsividade</li>
+  <li>Clean Code</li>
 </ul>
 
-## Ferramentas e Stack a ser utilizado [✔]
+## Ferramentas e Linguagens utilizados
 
 <ul>
-  <li>[✔] ReactJS para o frontend</li>
-  <li>[✔] NodeJS (com ou sem frameworks)</li>
-  <li>[✔] MongoDB</li>
-  <li>[✔] HTML e CSS</li>
-</ul>
-
-# Como usar
-
-<p>Passo a passo de como baixar e configurar o projeto</p>
-
-<ol>
-  <li>Instale a ferramenta do MongoDB, <a href="https://www.mongodb.com/try/download/community" target="_blank" >aqui</a> </li>
-  <li>Após a instalação inicie o Banco de Dados na porta padrão</li>
-  <li>Baixe o repositorio e estraia os arquivos</li>
-  <li>Abra os arquivos (Web/Server) e instale as dependencias com: <code>npm install</code></li>
-  <li>Apos a instalação inicie ambos (Web/Server) com: <code>npm run dev</code></li>
-</ol>
-
-# Materiais de estudo
-
-<ul>
-  <li>[Paginação](https://www.youtube.com/watch?v=YSlzQlEqTBg)</li>
-  <li>[Sharenergy](https://www.sharenergy.com.br/)</li>
+  <li>Git</li>
+  <li>HTML</li>
+  <li>CSS -> TailwindCSS</li>
+  <li>JavaScript -> Typescript</li>
+  <li>ReactJS -> NextJS</li>
+  <li>NodeJS -> Fastify</li>
+  <li>MongoDB</li>
 </ul>
