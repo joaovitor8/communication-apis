@@ -13,7 +13,7 @@ fastify.register(cors, {
 // Registando o DB mongoDB
 fastify.register(require('@fastify/mongodb'), {
   forceClose: true,
-  url: 'mongodb://127.0.0.1:27017/teste',
+  url: 'mongodb://127.0.0.1:27017/Communication-APIs_DB',
 })
 
 // -----------------------------------------------
