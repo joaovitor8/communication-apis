@@ -13,6 +13,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   // const logado = true
   const logado = false
 
+  // localStorage.getItem('')
+
   return (
     <html lang="en">
       <body>

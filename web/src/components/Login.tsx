@@ -1,15 +1,24 @@
 'use client'
 
-import { useState } from "react"
+import { useState } from 'react'
+import axios from 'axios'
 
 export const Login = () => {
   const [userAutent, setUserAutent] = useState('')
   const [passAutent, setPassAutent] = useState('')
 
-  const Autenticar = () => {}
+  // const Autenticar = async (event: any) => {
+  //   event.preventDefault()
+  //   try {
+  //     await axios.post('http://localhost:3333/login', { userAutent, passAutent })
+  //   } catch (error) {
+  //     console.error('Algo deu errado', error)
+  //   }
+  // }
 
-
-  console.log(userAutent, passAutent)
+  const Autenticar = () => {
+    localStorage.setItem(userAutent, passAutent)
+  }
 
   return (
     <div className="flex flex-col items-center justify-center px-6 py-12">
@@ -23,7 +32,7 @@ export const Login = () => {
             <div>
               <label htmlFor="text" className="block text-sm font-medium leading-6 text-gray-900">User Name</label>
               <div className="mt-2">
-                <input id="text" name="text" type="text" autoComplete="text" required onChange={e => setUserAutent(e.target.value)} className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"/>
+                <input id="text" name="text" type="text" autoComplete="text" required onChange={(e) => setUserAutent(e.target.value)} className="block w-full rounded-md border-0 p-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"/>
               </div>
             </div>
 
@@ -35,7 +44,7 @@ export const Login = () => {
                 </div>
               </div>
               <div className="mt-2">
-                <input id="password" name="password" type="password" autoComplete="current-password" required onChange={e => setPassAutent(e.target.value)} className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"/>
+                <input id="password" name="password" type="password" autoComplete="current-password" required onChange={(e) => setPassAutent(e.target.value)} className="block w-full rounded-md border-0 p-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"/>
               </div>
             </div>
 
