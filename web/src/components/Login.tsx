@@ -6,18 +6,23 @@ import axios from 'axios'
 export const Login = () => {
   const [userAutent, setUserAutent] = useState('')
   const [passAutent, setPassAutent] = useState('')
+  const [lembrar, setLembrar] = useState(false)
 
-  // const Autenticar = async (event: any) => {
-  //   event.preventDefault()
-  //   try {
-  //     await axios.post('http://localhost:3333/login', { userAutent, passAutent })
-  //   } catch (error) {
-  //     console.error('Algo deu errado', error)
-  //   }
-  // }
+  const Autenticar = async (event: any) => {
+    event.preventDefault()
+    try {
+      await axios.post('http://localhost:3333/login', { userAutent, passAutent, lembrar })
+    } catch (error) {
+      console.error('Algo deu errado', error)
+    }
+  }
 
-  const Autenticar = () => {
-    localStorage.setItem(userAutent, passAutent)
+  const Lembra = () => {
+    if (lembrar === false) {
+      setLembrar(true)
+    } else {
+      setLembrar(false)
+    }
   }
 
   return (
@@ -45,6 +50,10 @@ export const Login = () => {
               </div>
               <div className="mt-2">
                 <input id="password" name="password" type="password" autoComplete="current-password" required onChange={(e) => setPassAutent(e.target.value)} className="block w-full rounded-md border-0 p-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"/>
+              </div>
+              <div>
+                <input type="checkbox" name="lembrar" id="lembrar" onClick={Lembra}/>
+                <span className="ml-1">Lembrar-me</span>
               </div>
             </div>
 
