@@ -11,7 +11,7 @@ export const Login = () => {
   const Autenticar = async (event: any) => {
     event.preventDefault()
     try {
-      await axios.post('http://localhost:3333/login', { userAutent, passAutent, lembrar })
+      await axios.post('http://localhost:3333/login', { userAutent, passAutent })
     } catch (error) {
       console.error('Algo deu errado', error)
     }

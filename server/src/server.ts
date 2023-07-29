@@ -1,8 +1,8 @@
-// app.js
 const fastify = require('fastify')()
 const cors = require('@fastify/cors')
-const configureDB = require('./configDB')
-const configureRoutes = require('./rotas/users')
+const rotasUsers = require('./rotas/users')
+const rotasLogin = require('./rotas/login')
+const confgDB = require('./db/configDB')
 
 // Registrando a autorização
 fastify.register(cors, {
@@ -11,10 +11,11 @@ fastify.register(cors, {
 })
 
 // Configurando o DB MongoDB
-configureDB(fastify)
+confgDB(fastify)
 
 // Configurando as rotas
-configureRoutes(fastify)
+rotasUsers(fastify)
+rotasLogin(fastify)
 
 // Iniciar Servidor
 fastify.listen({ port: 3333 }).then(() => {
