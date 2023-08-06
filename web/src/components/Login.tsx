@@ -7,13 +7,20 @@ export const Login = () => {
   const [userAutent, setUserAutent] = useState('')
   const [passAutent, setPassAutent] = useState('')
   const [lembrar, setLembrar] = useState(false)
+  const [logado, setLogado] = useState(false)
 
   const Autenticar = async (event: any) => {
     event.preventDefault()
     try {
       await axios.post('http://localhost:3333/login', { userAutent, passAutent })
+      .then(res => setLogado(res.data))
     } catch (error) {
       console.error('Algo deu errado', error)
+    }
+
+    if (lembrar === true) {
+      localStorage.setItem("user", userAutent)
+      localStorage.setItem("pass", passAutent)
     }
   }
 
@@ -24,6 +31,8 @@ export const Login = () => {
       setLembrar(false)
     }
   }
+
+  console.log(logado)
 
   return (
     <div className="flex flex-col items-center justify-center px-6 py-12">
