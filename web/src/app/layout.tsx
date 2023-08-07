@@ -1,8 +1,11 @@
+'use client'
+
 import { ReactNode } from 'react'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
 import { Login } from '@/components/Login'
 import './globals.css'
+import { useState } from 'react'
 
 export const metadata = {
   title: 'APIs',
@@ -10,26 +13,20 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-  // const logado = true
-  const logado = false
 
-  const usuario = localStorage.getItem("user")
-
-  if (usuario !== '') {}
-
-  console.log(usuario)
+  const [logar, setLogar] = useState(false)
 
   return (
     <html lang="en">
       <body>
-        {logado ? (
+        {logar ? (
           <>
             <Navbar />
             {children}
             <Footer />
           </>
         ) : (
-          <Login />
+          <Login setLogar={setLogar}/>
         )}
       </body>
     </html>

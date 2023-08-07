@@ -3,10 +3,9 @@
 import { useState } from 'react'
 import axios from 'axios'
 
-export const Login = () => {
+export const Login = ({ setLogar }) => {
   const [userAutent, setUserAutent] = useState('')
   const [passAutent, setPassAutent] = useState('')
-  const [lembrar, setLembrar] = useState(false)
   const [logado, setLogado] = useState(false)
 
   const Autenticar = async (event: any) => {
@@ -17,22 +16,9 @@ export const Login = () => {
     } catch (error) {
       console.error('Algo deu errado', error)
     }
-
-    if (lembrar === true) {
-      localStorage.setItem("user", userAutent)
-      localStorage.setItem("pass", passAutent)
-    }
   }
 
-  const Lembra = () => {
-    if (lembrar === false) {
-      setLembrar(true)
-    } else {
-      setLembrar(false)
-    }
-  }
-
-  console.log(logado)
+  setLogar(logado)
 
   return (
     <div className="flex flex-col items-center justify-center px-6 py-12">
@@ -61,7 +47,7 @@ export const Login = () => {
                 <input id="password" name="password" type="password" autoComplete="current-password" required onChange={(e) => setPassAutent(e.target.value)} className="block w-full rounded-md border-0 p-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"/>
               </div>
               <div>
-                <input type="checkbox" name="lembrar" id="lembrar" onClick={Lembra}/>
+                <input type="checkbox" name="lembrar" id="lembrar" disabled/>
                 <span className="ml-1">Lembrar-me</span>
               </div>
             </div>
