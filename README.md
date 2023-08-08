@@ -48,6 +48,8 @@ Inicie o servidor
 
 **Back-end:** Node, Fastify
 
+**Data Base:** MongoDB
+
 
 ## Licença
 
