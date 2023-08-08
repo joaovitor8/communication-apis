@@ -5,7 +5,7 @@ Aplicação web (frontend e backend) capaz de realizar a comunicação com APIs 
 É um projeto simples mas deu muito trabalho pra mim hahah, se você esta vendo isso puder e quiser dar um feedback eu agradeço!.
 
 
-## Sobre
+## Oque Fazer
 
 <p>A página inicial da aplicação deve ser uma `Login Page`</p>
 <p>O usuário deve ser capaz de se autenticar utilizando o username `desafiosharenergy` e password `sh@r3n3rgy`, também, deve existir a possibilidade do usuário utilizar o `remember me` para realizar logins automáticos, sem a necessidade de digitar username e password após o primeiro acesso</p>
