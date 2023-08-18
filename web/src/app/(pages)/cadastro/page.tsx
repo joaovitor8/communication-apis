@@ -1,5 +1,5 @@
-import { CadastroUsers } from '@/components/serverUsers/CadastroUsers'
-import { MostrarUsers } from '@/components/serverUsers/MostrarUsers'
+import { CadastroUsers } from '@/components/pagCadastro/CadastroUsers'
+import { MostrarUsers } from '@/components/pagCadastro/MostrarUsers'
 
 export default function Cadastro() {
   return (

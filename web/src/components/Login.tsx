@@ -3,22 +3,19 @@
 import { useState } from 'react'
 import axios from 'axios'
 
-export const Login = ({ setLogar }) => {
+export const Login = () => {
   const [userAutent, setUserAutent] = useState('')
   const [passAutent, setPassAutent] = useState('')
-  const [logado, setLogado] = useState(false)
 
   const Autenticar = async (event: any) => {
     event.preventDefault()
     try {
       await axios.post('http://localhost:3333/login', { userAutent, passAutent })
-      .then(res => setLogado(res.data))
+      .then(res => console.log(res.data))
     } catch (error) {
       console.error('Algo deu errado', error)
     }
   }
-
-  setLogar(logado)
 
   return (
     <div className="flex flex-col items-center justify-center px-6 py-12">

@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from 'react'
 import { Users } from './Users'
-import { SearchUsers } from '../SearchUsers'
-import { RandomUserApi } from '../Types'
+import { SearchUsers } from '../componentsGlobais/SearchUsers'
+import { RandomUserApi } from '../componentsGlobais/Types'
 import axios from 'axios'
 
 export const Pagination = () => {

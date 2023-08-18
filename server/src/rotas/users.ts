@@ -1,6 +1,4 @@
-
 module.exports = function rotasUsers(fastify: any) {
-
 
   // Criar um usuário
   fastify.post('/users', async (request: any, reply: any) => {
@@ -16,14 +14,12 @@ module.exports = function rotasUsers(fastify: any) {
     reply.send({ message: 'Usuário adicionado com sucesso' })
   })
 
-
   // Pegar todos os usuários
   fastify.get('/users', async (request: any, reply: any) => {
     const collection = fastify.mongo.db.collection('users')
     const users = await collection.find().toArray()
     reply.send(users)
   })
-
 
   // Pegar um usuário
   // fastify.get('/users/:id', async (request: any, reply: any) => {
@@ -38,7 +34,6 @@ module.exports = function rotasUsers(fastify: any) {
   //   }
   // })
 
-
   // Atualizar um usuário
   fastify.put('/users/:id', async (request: any, reply: any) => {
     const collection = fastify.mongo.db.collection('users')
@@ -51,7 +46,6 @@ module.exports = function rotasUsers(fastify: any) {
       reply.send(updatedUser, { message: 'Usuário atualizado com sucesso' })
     }
   })
-
 
   // Deletar um usuário
   fastify.delete('/users/:id', async (request: any, reply: any) => {

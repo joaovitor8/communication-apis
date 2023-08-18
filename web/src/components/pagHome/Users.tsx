@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 
-import { RandomUserApi } from '../Types'
+import { RandomUserApi } from '../componentsGlobais/Types'
 
 export const Users = ({ currentItens }: any) => {
   return (

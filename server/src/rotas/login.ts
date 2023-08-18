@@ -1,4 +1,3 @@
-
 module.exports = function rotasLogin(fastify: any) {
 
   fastify.post('/login', async (request: any, reply: any) => {

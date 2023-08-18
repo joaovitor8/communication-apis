@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from 'react'
 import { AtualizarUsers, DeletarUser } from './Buttons'
-import { SearchUsers } from '../SearchUsers'
-import { UsersDB } from '../Types'
+import { SearchUsers } from '../componentsGlobais/SearchUsers'
+import { UsersDB } from '../componentsGlobais/Types'
 import axios from 'axios'
 
 export const MostrarUsers = () => {
@@ -37,12 +37,9 @@ export const MostrarUsers = () => {
         <SearchUsers filterUsers={filterUsers} />
       </div>
 
-      <div className="flex w-full flex-wrap items-start">
+      <div className="flex w-full flex-row flex-wrap justify-center">
         {users.map((user, index) => (
-          <div
-            key={index}
-            className="m-1 flex h-44 w-60 flex-col justify-between bg-slate-400 px-1 py-1"
-          >
+          <div key={index} className="m-1 flex h-52 w-96 flex-col justify-between bg-slate-400 px-1 py-1">
             <div>
               <p>Nome: {user.nome}</p>
               <p>Email: {user.email}</p>
