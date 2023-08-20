@@ -25,6 +25,14 @@ export const CadastroUsers = () => {
     }
   }
 
+  // const Atualizar = async () => {
+  //   try {
+  //     await axios.put(`http://localhost:3333/users/${''}`)
+  //   } catch (erro) {
+  //     console.error('Algo deu errado', erro)
+  //   }
+  // }
+
   return (
     <form onSubmit={handleSubmit} className="flex h-80 w-4/5 flex-col items-center justify-center space-y-3">
       <div className="flex w-full items-center justify-center space-x-3">

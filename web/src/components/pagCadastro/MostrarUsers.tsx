@@ -8,6 +8,7 @@ import axios from 'axios'
 
 export const MostrarUsers = () => {
   const [users, setUsers] = useState<UsersDB[]>([])
+  const [mostrarEsconder, setMostrarEsconder] = useState(false)
 
   useEffect(() => {
     getUsersServer()
@@ -31,8 +32,27 @@ export const MostrarUsers = () => {
     }
   }
 
+  const MostrarEsconder = () => {
+    if (mostrarEsconder === false) {
+      setMostrarEsconder(true)
+    } else {
+      setMostrarEsconder(false)
+    }
+  }
+
   return (
     <div className="flex w-full flex-col items-center space-y-5 bg-slate-200 px-5 py-5">
+      {mostrarEsconder ? (
+        <div className="fixed left-0 top-0 flex h-full w-full items-center justify-center bg-white bg-opacity-50">
+          <div className="h-3/4 w-1/2 bg-red-600">
+            <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+            <button className="rounded bg-slate-600 px-2 py-1 text-white" onClick={MostrarEsconder}>Sair</button>
+          </div>
+        </div>
+      ) : (
+        <></>
+      )}
+
       <div>
         <SearchUsers filterUsers={filterUsers} />
       </div>
@@ -49,7 +69,7 @@ export const MostrarUsers = () => {
             </div>
 
             <div className="flex w-full justify-end space-x-5">
-              <AtualizarUsers id={user._id} />
+              <AtualizarUsers MostrarEsconder={MostrarEsconder} />
               <DeletarUser id={user._id} />
             </div>
           </div>

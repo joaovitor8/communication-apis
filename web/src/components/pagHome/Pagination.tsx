@@ -59,12 +59,7 @@ export const Pagination = () => {
       <div className="space-x-1">
         {Array.from(Array(paginas), (item, index) => {
           return (
-            <button
-              key={index}
-              value={index}
-              className="h-10 w-10 bg-green-500"
-              onClick={(e) => setPaginaVisivel(Number(e.currentTarget.value))}
-            >
+            <button key={index} value={index} className="h-10 w-10 bg-green-500" onClick={(e) => setPaginaVisivel(Number(e.currentTarget.value))}>
               {index + 1}
             </button>
           )

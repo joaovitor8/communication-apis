@@ -1,4 +1,4 @@
-import { CadastroUsers } from '@/components/pagCadastro/CadastroUsers'
+import { CadastroUsers } from '@/components/pagCadastro/Formulario'
 import { MostrarUsers } from '@/components/pagCadastro/MostrarUsers'
 
 export default function Cadastro() {

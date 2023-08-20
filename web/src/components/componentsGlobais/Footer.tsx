@@ -14,12 +14,20 @@ export const Footer = () => {
 
         <ul className="flex space-x-5">
           <li>
-            <a href="https://www.linkedin.com/in/joaovitorezequiel/" target={'_blank'} rel="noreferrer">
+            <a
+              href="https://www.linkedin.com/in/joaovitorezequiel/"
+              target={'_blank'}
+              rel="noreferrer"
+            >
               <img src="/linkedin.svg" alt="" className="h-10 w-10" />
             </a>
           </li>
           <li>
-            <a href="https://github.com/joaovitor8" target={'_blank'} rel="noreferrer">
+            <a
+              href="https://github.com/joaovitor8"
+              target={'_blank'}
+              rel="noreferrer"
+            >
               <img src="/github.svg" alt="" className="h-10 w-10" />
             </a>
           </li>

@@ -10,6 +10,10 @@ export interface Pesquisar {
   filterUsers: (valor: string) => void
 }
 
+export interface MostrarEsconder {
+  MostrarEsconder: () => void
+}
+
 export interface UsersDB {
   _id: number
   nome: string

@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { Navbar } from '@/components/componentsGlobais/Navbar'
+import { Header } from '@/components/componentsGlobais/Header'
 import { Footer } from '@/components/componentsGlobais/Footer'
 // import { Login } from '@/components/Login'
 import './globals.css'
@@ -10,11 +10,10 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-
   return (
     <html lang="en">
-    <body>
-        <Navbar />
+      <body>
+        <Header />
         {children}
         <Footer />
       </body>
