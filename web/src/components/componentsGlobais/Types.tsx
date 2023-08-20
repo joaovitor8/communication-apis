@@ -6,8 +6,8 @@ export interface RandomUserApi {
   picture: string
 }
 
-export interface Pesquisar {
-  filterUsers: (valor: string) => void
+export interface PesquisarUsers {
+  pesquisarUsuarios: (valor: string) => void
 }
 
 export interface MostrarEsconder {

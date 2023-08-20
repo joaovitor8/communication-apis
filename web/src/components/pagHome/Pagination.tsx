@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { Users } from './Users'
-import { SearchUsers } from '../componentsGlobais/SearchUsers'
+import { Pesquisar } from '../componentsGlobais/Pesquisar'
 import { RandomUserApi } from '../componentsGlobais/Types'
 import axios from 'axios'
 
@@ -17,7 +17,7 @@ export const Pagination = () => {
   const endIndex = startIndex + itensPorPagina
   const currentItens = dados.slice(startIndex, endIndex)
 
-  const getRandomUsersApi = () => {
+  const pegarUsuariosAleatorios = () => {
     axios
       .get('https://randomuser.me/api/?results=150')
       .then((response) => {
@@ -37,12 +37,12 @@ export const Pagination = () => {
   }
 
   useEffect(() => {
-    getRandomUsersApi()
+    pegarUsuariosAleatorios()
   }, [])
 
-  const filterUsers = (valor: string) => {
+  const pesquisarUsuarios = (valor: string) => {
     if (valor === '') {
-      getRandomUsersApi()
+      pegarUsuariosAleatorios()
     } else {
       const filtrar = dados.filter(
         (d) =>
@@ -66,7 +66,7 @@ export const Pagination = () => {
         })}
       </div>
 
-      <SearchUsers filterUsers={filterUsers} />
+      <Pesquisar pesquisarUsuarios={pesquisarUsuarios} />
 
       <Users currentItens={currentItens} />
     </>

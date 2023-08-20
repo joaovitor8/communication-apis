@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { AtualizarUsers, DeletarUser } from './Buttons'
-import { SearchUsers } from '../componentsGlobais/SearchUsers'
+import { Pesquisar } from '../componentsGlobais/Pesquisar'
 import { UsersDB } from '../componentsGlobais/Types'
 import axios from 'axios'
 
@@ -23,7 +23,7 @@ export const MostrarUsers = () => {
     }
   }
 
-  const filterUsers = (valor: string) => {
+  const pesquisarUsuarios = (valor: string) => {
     if (valor === '') {
       getUsersServer()
     } else {
@@ -54,7 +54,7 @@ export const MostrarUsers = () => {
       )}
 
       <div>
-        <SearchUsers filterUsers={filterUsers} />
+        <Pesquisar pesquisarUsuarios={pesquisarUsuarios} />
       </div>
 
       <div className="flex w-full flex-row flex-wrap justify-center">
