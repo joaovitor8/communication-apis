@@ -9,9 +9,9 @@ export const Footer = () => {
         <h2 className="mb-3">Redes Sociais:</h2>
 
         <ul className="flex space-x-5">
-          <li> <a href="https://www.linkedin.com/in/joaovitorezequiel/" target={'_blank'} rel="noreferrer">Linkedin</a> </li>
-          <li> <a href="https://github.com/joaovitor8" target={'_blank'} rel="noreferrer">GitHub</a> </li>
-          <li> <a href="https://twitter.com/Joao_Ezeki" target={'_blank'} rel="noreferrer">Twitter</a> </li>
+          <li> <a href="https://www.linkedin.com/in/joaovitorezequiel/" target={'_blank'} rel="noreferrer" className="hover:underline">Linkedin</a> </li>
+          <li> <a href="https://github.com/joaovitor8" target={'_blank'} rel="noreferrer" className="hover:underline">GitHub</a> </li>
+          <li> <a href="https://twitter.com/Joao_Ezeki" target={'_blank'} rel="noreferrer" className="hover:underline">Twitter</a> </li>
         </ul>
       </div>
     </footer>

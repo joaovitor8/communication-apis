@@ -4,7 +4,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-export const InputImg = () => {
+export const DogApiComponents = () => {
   const [imageDog, setImageDog] = useState<string>('')
 
   useEffect(() => {

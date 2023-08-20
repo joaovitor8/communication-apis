@@ -1,28 +1,26 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Users } from './Users'
-import { Pesquisar } from '../componentsGlobais/Pesquisar'
-import { RandomUserApi } from '../componentsGlobais/Types'
+import { InputPesquisar } from '../InputPesquisar'
+import { UsuariosAleatoriosCard } from './UsuariosAleatoriosCard'
+import { RandomUserApi, DataUser } from '../Types'
 import axios from 'axios'
 
-export const Pagination = () => {
+export const UsuariosAleatorios = () => {
   const [dados, setDados] = useState<RandomUserApi[]>([])
   const [itensPorPagina, setItensPorPagina] = useState<number>(15)
   const [paginaVisivel, setPaginaVisivel] = useState<number>(0)
 
-  // Confg para a Paginação
   const paginas = Math.ceil(dados.length / itensPorPagina)
-  const startIndex = paginaVisivel * itensPorPagina
-  const endIndex = startIndex + itensPorPagina
-  const currentItens = dados.slice(startIndex, endIndex)
+  const indiceInicial = paginaVisivel * itensPorPagina
+  const indiceFinal = indiceInicial + itensPorPagina
+  const usuariosPorPagina = dados.slice(indiceInicial, indiceFinal)
 
   const pegarUsuariosAleatorios = () => {
-    axios
-      .get('https://randomuser.me/api/?results=150')
+    axios.get('https://randomuser.me/api/?results=150')
       .then((response) => {
         const data = response.data.results
-        const userList: RandomUserApi[] = data.map((user: any) => ({
+        const userList: RandomUserApi[] = data.map((user: DataUser) => ({
           name: `${user.name.first} ${user.name.last}`,
           email: user.email,
           username: user.login.username,
@@ -40,7 +38,7 @@ export const Pagination = () => {
     pegarUsuariosAleatorios()
   }, [])
 
-  const pesquisarUsuarios = (valor: string) => {
+  const PesquisarUsuariosAPI = (valor: string) => {
     if (valor === '') {
       pegarUsuariosAleatorios()
     } else {
@@ -66,9 +64,9 @@ export const Pagination = () => {
         })}
       </div>
 
-      <Pesquisar pesquisarUsuarios={pesquisarUsuarios} />
+      <InputPesquisar pesquisar={PesquisarUsuariosAPI} />
 
-      <Users currentItens={currentItens} />
+      <UsuariosAleatoriosCard usuariosPorPagina={usuariosPorPagina} />
     </>
   )
 }

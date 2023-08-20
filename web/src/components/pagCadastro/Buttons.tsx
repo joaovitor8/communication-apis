@@ -1,4 +1,4 @@
-import { MostrarEsconder } from '../componentsGlobais/Types'
+import { MostrarEsconder } from '../Types'
 import axios from 'axios'
 
 export const AtualizarUsers = ({ MostrarEsconder }: MostrarEsconder) => {
