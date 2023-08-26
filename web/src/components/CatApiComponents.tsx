@@ -2,7 +2,7 @@
 'use client'
 
 import { useState } from 'react'
-import { InputPesquisar } from './InputPesquisar'
+import { InputPesquisar } from './componentsGlobais/InputPesquisar'
 
 export const CatApiComponents = () => {
   const [imgCat, setImgCat] = useState<number>(0)

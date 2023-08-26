@@ -1,9 +1,8 @@
-import { MostrarEsconder } from '../Types'
 import axios from 'axios'
 
-export const AtualizarUsers = ({ MostrarEsconder }: MostrarEsconder) => {
+export const AtualizarUsers = () => {
   return (
-    <button className="rounded bg-slate-600 px-2 py-1 text-white" onClick={MostrarEsconder}>Atualizar</button>
+    <button className="rounded bg-slate-600 px-2 py-1 text-white">Atualizar</button>
   )
 }
 

@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
-import { Header } from '@/components/Header'
-import { Footer } from '@/components/Footer'
+import { Header } from '@/components/componentsGlobais/Header'
+import { Footer } from '@/components/componentsGlobais/Footer'
 // import { Login } from '@/components/Login'
 import './globals.css'
 

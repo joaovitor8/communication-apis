@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from 'react'
 import { AtualizarUsers, DeletarUser } from './Buttons'
-import { InputPesquisar } from '../InputPesquisar'
-import { UsersDB } from '../Types'
+import { InputPesquisar } from '../componentsGlobais/InputPesquisar'
+import { UsersDB } from '../componentsGlobais/Types'
 import axios from 'axios'
 
 export const MostrarUsers = () => {
@@ -69,7 +69,7 @@ export const MostrarUsers = () => {
             </div>
 
             <div className="flex w-full justify-end space-x-5">
-              <AtualizarUsers MostrarEsconder={MostrarEsconder} />
+              <AtualizarUsers />
               <DeletarUser id={user._id} />
             </div>
           </div>

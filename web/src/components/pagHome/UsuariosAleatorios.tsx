@@ -1,9 +1,9 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { InputPesquisar } from '../InputPesquisar'
+import { InputPesquisar } from '../componentsGlobais/InputPesquisar'
 import { UsuariosAleatoriosCard } from './UsuariosAleatoriosCard'
-import { RandomUserApi, DataUser } from '../Types'
+import { RandomUserApi, DataUser } from '../componentsGlobais/Types'
 import axios from 'axios'
 
 export const UsuariosAleatorios = () => {

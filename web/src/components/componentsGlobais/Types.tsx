@@ -35,7 +35,3 @@ export interface UsersDB {
   cpf: number
   end: string
 }
-
-export interface MostrarEsconder {
-  MostrarEsconder: () => void
-}
